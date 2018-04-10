@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<launch>
+    
+    <include file="$(find husky_gazebo)/launch/husky_playpen.launch">
+        <arg name="laser_enabled" value="true"/>
+
+    </include>
+    <node pkg="husky_high_level_controller" type="husky_high_level_controller_node" name="laser_listener" output="screen">
+        <param name="laser_topic" value="/scan"/>
+    </node>
+
+    <node pkg="rviz" type="rviz" name="rviz"/>
+
+    <!-- <node pkg="rviz" type="rviz" name="rviz"/> -->
+</launch>
